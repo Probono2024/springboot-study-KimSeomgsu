@@ -9,11 +9,23 @@
         </tr>
     </thead>
     <tbody>
+        
         <tr th:each="question, loop : ${paging}">
+
+            <!--게시글 갯수 기능 보여줌 -->
             <td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
             <td>
                 <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+                
+                <!--댓글 개수 기능 보여줌-->
+                <span class="text-danger small ms-2" th:if="${#lists.size(question.answerList) > 0}" th:text="${#lists.size(question.answerList)}"></span>
+                <!--댓글 개수 기능 보여줌 끝 -->
+            
             </td>
+            <!--게시글 갯수 기능 보여줌 끝 -->
+
+            
+
             <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
         </tr>
     </tbody>
