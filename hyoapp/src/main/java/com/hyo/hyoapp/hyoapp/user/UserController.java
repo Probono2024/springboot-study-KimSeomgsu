@@ -29,6 +29,12 @@ public class UserController {
         return "signup_form";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login_form";
+    }
+    
+
     @PostMapping("/signup")
     public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
         //TODO: process POST request
