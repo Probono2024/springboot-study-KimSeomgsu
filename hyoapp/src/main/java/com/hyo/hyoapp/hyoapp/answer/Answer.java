@@ -1,7 +1,9 @@
 package com.hyo.hyoapp.hyoapp.answer;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.hyo.hyoapp.hyoapp.question.Question;
+import com.hyo.hyoapp.hyoapp.user.SiteUser;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,4 +29,9 @@ public class Answer {
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
+
+    private LocalDateTime modifyDate;
 }
